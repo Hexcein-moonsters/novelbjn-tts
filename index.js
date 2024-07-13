@@ -14,13 +14,14 @@ async function fetchAndExtractText(url) {
             let textContent = contentDiv.textContent;
 
             // Remove lines containing "window.pubfuturetag"
-            textContent = textContent.replace(/window\.pubfuturetag.*?;\s*/gs, '');
+            textContent = textContent.replace(/window\.pubfuturetag[\s\S]*?\);/g, '');
 
             // Remove empty lines at the start and end
-            textContent = textContent.trim().replace(/^\s*[\r\n]/gm, '');
+            textContent = textContent.trim();
+            textContent = textContent.replace(/^\s*$(?:\r\n?|\n)/gm, '');
 
             // Remove lines starting with "Translator:"
-            textContent = textContent.replace(/^Translator:.*$/gm, '');
+            textContent = textContent.replace(/^.*Translator:.*$/gm, '');
 
             console.log(textContent);
         } else {
