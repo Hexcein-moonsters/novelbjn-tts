@@ -5,6 +5,7 @@ async function fetchAndExtractText(url) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const html = await response.text().content;
+        console.log(html)
         
         // Parse the HTML content
         const parser = new DOMParser();
