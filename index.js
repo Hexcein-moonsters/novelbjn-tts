@@ -5,7 +5,7 @@ async function fetchAndExtractText(url) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         let html = await response.json();
-        html = html.contents
+        html = html.contents;
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
 
@@ -14,14 +14,14 @@ async function fetchAndExtractText(url) {
             let textContent = contentDiv.textContent;
 
             // Remove lines containing "window.pubfuturetag"
-            textContent = textContent.replace(/window\.pubfuturetag.*;\s*/g, '');
+            textContent = textContent.replace(/window\.pubfuturetag.*?;\s*/gs, '');
 
             // Remove empty lines at the start and end
-            textContent = textContent.trim();
-            textContent = textContent.replace(/^\s*\n/gm, '');
+            textContent = textContent.trim().replace(/^\s*[\r\n]/gm, '');
 
             // Remove lines starting with "Translator:"
             textContent = textContent.replace(/^Translator:.*$/gm, '');
+
             console.log(textContent);
         } else {
             console.error('Content div not found');
