@@ -21,7 +21,7 @@ async function fetchAndExtractText(url) {
             textContent = textContent.replace(/^\s*[\r\n]/gm, '');
 
             // Remove lines starting with "Translator:"
-            textContent = textContent.replace(/^Translator:.*$/gm, '');
+            textContent = textContent.replace(/^.*Translator:.*$/gm, '');
 
             // Additional step: Remove any remaining lines with specific unwanted patterns
             textContent = textContent.replace(/^.*window\.pubfuturetag.*$/gm, '');
