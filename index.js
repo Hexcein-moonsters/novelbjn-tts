@@ -6,9 +6,6 @@ async function fetchAndExtractText(url) {
         }
         let html = await response.json();
         html = html.contents
-        console.log(html)
-        
-        // Parse the HTML content
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
 
