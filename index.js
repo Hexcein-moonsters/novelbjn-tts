@@ -1,11 +1,11 @@
 async function fetchAndExtractText(url) {
     try {
-        const response = await fetch(url);
+        const response = await fetch("https://api.allorigins.win/get?url=${encodeURIComponent("+url+")}");
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const html = await response.text();
-
+        
         // Parse the HTML content
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
