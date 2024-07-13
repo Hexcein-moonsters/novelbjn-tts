@@ -11,7 +11,17 @@ async function fetchAndExtractText(url) {
 
         const contentDiv = doc.querySelector('#chr-content');
         if (contentDiv) {
-            const textContent = contentDiv.textContent;
+            let textContent = contentDiv.textContent;
+
+            // Remove lines containing "window.pubfuturetag"
+            textContent = textContent.replace(/window\.pubfuturetag.*;\s*/g, '');
+
+            // Remove empty lines at the start and end
+            textContent = textContent.trim();
+            textContent = textContent.replace(/^\s*\n/gm, '');
+
+            // Remove lines starting with "Translator:"
+            textContent = textContent.replace(/^Translator:.*$/gm, '');
             console.log(textContent);
         } else {
             console.error('Content div not found');
