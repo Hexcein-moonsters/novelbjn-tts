@@ -14,14 +14,17 @@ async function fetchAndExtractText(url) {
             let textContent = contentDiv.textContent;
 
             // Remove lines containing "window.pubfuturetag"
-            textContent = textContent.replace(/window\.pubfuturetag[\s\S]*?\);/g, '');
+            textContent = textContent.replace(/window\.pubfuturetag = window\.pubfuturetag \|\| \[\];window\.pubfuturetag\.push\({unit: ".*", id: ".*"}\)/g, '');
 
             // Remove empty lines at the start and end
             textContent = textContent.trim();
-            textContent = textContent.replace(/^\s*$(?:\r\n?|\n)/gm, '');
+            textContent = textContent.replace(/^\s*[\r\n]/gm, '');
 
             // Remove lines starting with "Translator:"
-            textContent = textContent.replace(/^.*Translator:.*$/gm, '');
+            textContent = textContent.replace(/^Translator:.*$/gm, '');
+
+            // Additional step: Remove any remaining lines with specific unwanted patterns
+            textContent = textContent.replace(/^.*window\.pubfuturetag.*$/gm, '');
 
             console.log(textContent);
         } else {
