@@ -44,12 +44,10 @@ import { client } from 'https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.m
 const response_0 = await fetch("./deep_voice.mp3");
 const exampleAudio = await response_0.blob();
 						
-const app = await client("https://myshell-ai-openvoicev2.hf.space/--replicas/sh0ts/");
-const result = await app.predict(1, [		
-				"Howdy! But who are you?", // string  in 'Text Prompt' Textbox component		
-				"en_us", // string (Option from: [('en_default', 'en_default'), ('en_us', 'en_us'), ('en_br', 'en_br'), ('en_au', 'en_au'), ('en_in', 'en_in'), ('es_default', 'es_default'), ('fr_default', 'fr_default'), ('jp_default', 'jp_default'), ('zh_default', 'zh_default'), ('kr_default', 'kr_default')]) in 'Style' Dropdown component
-				exampleAudio, 	// blob in 'Reference Audio' Audio component		
-				true, // boolean  in 'Agree' Checkbox component
+const app = await client("tonyassi/voice-clone");
+const result = await app.predict("/predict", [		
+				"Hello!!", // string  in 'Text' Textbox component
+				exampleAudio, 	// blob in 'Voice reference audio file' Audio component
 	]);
 
 console.log(result.data);
