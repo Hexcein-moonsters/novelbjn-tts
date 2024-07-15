@@ -27,6 +27,8 @@ async function fetchAndExtractText(url) {
             textContent = textContent.replace(/^.*window\.pubfuturetag.*$/gm, '');
 
             console.log(textContent);
+
+            await text_to_speech(textContent)
         } else {
             console.error('Content div not found');
         }
@@ -45,9 +47,11 @@ const response_0 = await fetch("./deep_voice.mp3");
 const exampleAudio = await response_0.blob();
 						
 const app = await client("tonyassi/voice-clone");
-const result = await app.predict("/predict", [		
-				"Hello!!", // string  in 'Text' Textbox component
-				exampleAudio, 	// blob in 'Voice reference audio file' Audio component
-	]);
 
-console.log(result.data);
+async function text_to_speech(text) {
+    const result = await app.predict("/predict", [		
+			"Hello!! And who are you?", // string  in 'Text' Textbox component
+			exampleAudio, 	// blob in 'Voice reference audio file' Audio component
+	]);
+    console.log(result.data);
+}
