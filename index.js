@@ -45,8 +45,6 @@ import { client } from 'https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.m
 			
 async function text_to_speech(text) {
 
-    import { client } from "@gradio/client";
-
 const app = await client("tonyassi/voice-clone");
 
 client.predict("/predict"", [
