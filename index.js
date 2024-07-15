@@ -47,7 +47,7 @@ async function text_to_speech(text) {
 
 const app = await client("tonyassi/voice-clone");
 
-client.predict("/predict"", [
+const result =  await app.predict("/predict", [
   "Hey, it's me Megan Fox from Transformers. Type in whatever you'd like me to say. OKAY?",
   {
     "path": "/tmp/gradio/0ade2f086fea6743a2e24fbe73cae32bdeda0be6/Megan-Fox.mp3",
@@ -61,6 +61,7 @@ client.predict("/predict"", [
     }
   }
 ]);
+console.log(result.data);
 						
 
    // const response_0 = await fetch("./deep_voice.mp3");
