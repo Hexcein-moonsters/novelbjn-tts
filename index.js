@@ -41,7 +41,7 @@ fetchAndExtractText('https://novelbjn.novelupdates.net/book/release-that-witch/c
 
 import { client } from 'https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js';
 
-const response_0 = await fetch("https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav");
+const response_0 = await fetch("/deep_voice.mp3");
 const exampleAudio = await response_0.blob();
 						
 const app = await client("https://myshell-ai-openvoicev2.hf.space/--replicas/sh0ts/");
