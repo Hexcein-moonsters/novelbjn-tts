@@ -42,13 +42,13 @@ fetchAndExtractText('https://novelbjn.novelupdates.net/book/release-that-witch/c
 
 
 import { client } from 'https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js';
-
-const response_0 = await fetch("./deep_voice.mp3");
-const exampleAudio = await response_0.blob();
-						
-const app = await client("tonyassi/voice-clone");
-
+			
 async function text_to_speech(text) {
+
+    const response_0 = await fetch("./deep_voice.mp3");
+    const exampleAudio = await response_0.blob();
+                
+    const app = await client("tonyassi/voice-clone");
     const result = await app.predict("/predict", [		
 			"Hello!! And who are you?", // string  in 'Text' Textbox component
 			exampleAudio, 	// blob in 'Voice reference audio file' Audio component
