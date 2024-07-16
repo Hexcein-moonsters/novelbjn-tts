@@ -45,32 +45,31 @@ import { client } from 'https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.m
 			
 async function text_to_speech(text) {
 
-const app = await client("tonyassi/voice-clone");
+// //const app = await client("tonyassi/voice-clone");
+// const result =  await app.predict("/predict", [
+//   "Hey, it's me Megan Fox from Transformers. Type in whatever you'd like me to say. OKAY?",
+//   {
+//     "path": "/tmp/gradio/0ade2f086fea6743a2e24fbe73cae32bdeda0be6/Megan-Fox.mp3",
+//     "url": "https://tonyassi-voice-clone.hf.space/file=/tmp/gradio/0ade2f086fea6743a2e24fbe73cae32bdeda0be6/Megan-Fox.mp3",
+//     "size": null,
+//     "orig_name": "Megan-Fox.mp3",
+//     "mime_type": null,
+//     "is_stream": false,
+//     "meta": {
+//       "_type": "gradio.FileData"
+//     }
+//   }
+// ]);
+// console.log(result.data);
 
-const result =  await app.predict("/predict", [
-  "Hey, it's me Megan Fox from Transformers. Type in whatever you'd like me to say. OKAY?",
-  {
-    "path": "/tmp/gradio/0ade2f086fea6743a2e24fbe73cae32bdeda0be6/Megan-Fox.mp3",
-    "url": "https://tonyassi-voice-clone.hf.space/file=/tmp/gradio/0ade2f086fea6743a2e24fbe73cae32bdeda0be6/Megan-Fox.mp3",
-    "size": null,
-    "orig_name": "Megan-Fox.mp3",
-    "mime_type": null,
-    "is_stream": false,
-    "meta": {
-      "_type": "gradio.FileData"
-    }
-  }
-]);
-console.log(result.data);
-						
 
-   // const response_0 = await fetch("./deep_voice.mp3");
-   // const exampleAudio = await response_0.blob();
-                
-   // const app = await client("tonyassi/voice-clone");
-    //const result = await app.predict("/predict", [		
-	//		"Hello!! And who are you?", // string  in 'Text' Textbox component
-	//		exampleAudio, 	// blob in 'Voice reference audio file' Audio component
-	//]);
-    //console.log(result.data);
+   const response_0 = await fetch("./deep_voice.mp3");
+   const exampleAudio = await response_0.blob();
+    console.log(exampleAudio)            
+    const app = await client("tonyassi/voice-clone");
+    const result = await app.predict("/predict", [		
+			"Hello!! And who are you?", // string  in 'Text' Textbox component
+			exampleAudio, 	// blob in 'Voice reference audio file' Audio component
+	]);
+    console.log(result.data);
 }
