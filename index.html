@@ -50,10 +50,12 @@
 
     <label for="novelNum">Novel number:</label>
     <input id="novelNum" type="number" name="novelNum" />
-    <button onclick="getNovel()">
-        <span class="tooltiptext" id="a_Tooltip">Ask site for novel</span>
-        Get novel
-    </button>
+    <div class="tooltip" display="block">
+        <button id="getNovel">
+            <span class="tooltiptext" id="a_Tooltip">Ask site for novel</span>
+            Get novel
+        </button>
+    </div>
 
     <textarea display="none" id="myInput" rows="10" cols="50">
         Loading novel... Please wait up to 5 seconds.
