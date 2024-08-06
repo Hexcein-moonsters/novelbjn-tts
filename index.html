@@ -51,7 +51,8 @@
     <label for="novelNum">Novel number:</label>
     <input id="novelNum" type="number" name="novelNum" />
     <button onclick="getNovel()">
-        <span class="tooltiptext" id="a_Tooltip">Get novel</span>
+        <span class="tooltiptext" id="a_Tooltip">Ask site for novel</span>
+        Get novel
     </button>
 
     <textarea display="none" id="myInput" rows="10" cols="50">
@@ -111,7 +112,7 @@
             navigator.clipboard.writeText(copyText.value);
 
             var tooltip = document.getElementById("myTooltip");
-            tooltip.innerHTML = "Copied: " + copyText.value;
+            tooltip.innerHTML = "Copied chapter:", document.getElementById("novelNum").value;
         }
 
         function outFunc() {

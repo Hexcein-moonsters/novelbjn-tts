@@ -80,3 +80,9 @@ async function text_to_speech(text) {
 	]);
     console.log(result.data);
 }
+
+
+function getNovel() {
+    let novelNum = document.getElementById("novelNum").value
+    alert("working:", novelNum)
+}
