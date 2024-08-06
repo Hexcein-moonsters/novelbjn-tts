@@ -122,7 +122,9 @@
             tooltip.innerHTML = "Copy to clipboard";
         }
         function loadNumFromStorage() {
+            alert("loading storage")
             let novelNum = localStorage.getItem("novelNum")
+            alert("found, num is:", novelNum)
             document.getElementById("novelNum").value = novelNum
         }
     </script>

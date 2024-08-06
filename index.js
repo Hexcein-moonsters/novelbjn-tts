@@ -29,6 +29,9 @@ async function fetchAndExtractText(url) {
 
             // Additional step: Remove any remaining lines with specific unwanted patterns
             textContent = textContent.replace(/^.*window\.pubfuturetag.*$/gm, '');
+            
+            // Remove some weird lines
+            textContent = textContent.replace(/Thê sourc𝗲 of this content n\/o\/v\/\(𝒆l\)bi\(\(n\)\)|Finndd the new𝒆st 𝒏ovels on n\/𝒐\/velbin\(\.\)com/g, '');
 
             console.log(textContent);
             
