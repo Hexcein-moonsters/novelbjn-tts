@@ -84,8 +84,6 @@ async function text_to_speech(text) {
 
 document.getElementById("getNovel").addEventListener("click", getNovel);
 function getNovel() {
-    let novelNum = document.getElementById("novelNum")
-    novelNum = novelNum.value
-    console.log(novelNum)
-    alert("working:", novelNum)
+    let novelNum = document.getElementById("novelNum").value
+    localStorage.setItem("novelNum", novelNum)
 }
