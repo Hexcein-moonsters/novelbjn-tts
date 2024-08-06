@@ -1,6 +1,8 @@
 async function fetchAndExtractText(url) {
-    document.getElementById("myInput").style.display = "block";
-    document.getElementById("tooltip").style.display = "block";
+    // document.getElementById("myInput").style.display = "block";
+    // document.getElementById("tooltip").style.display = "block";
+    const tooltip = document.getElementById('a_Tooltip');
+    tooltip.style.display = 'block';
     try {
         const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
         if (!response.ok) {
