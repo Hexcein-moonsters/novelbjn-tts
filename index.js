@@ -1,4 +1,6 @@
 async function fetchAndExtractText(url) {
+    document.getElementById("myInput").style.display = "block";
+    document.getElementById("tooltip").style.display = "block";
     try {
         const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
         if (!response.ok) {
@@ -27,8 +29,11 @@ async function fetchAndExtractText(url) {
             textContent = textContent.replace(/^.*window\.pubfuturetag.*$/gm, '');
 
             console.log(textContent);
+            
+            document.getElementById("myInput").value = textContent
 
-            await text_to_speech(textContent)
+            //await text_to_speech(textContent)
+
         } else {
             console.error('Content div not found');
         }
