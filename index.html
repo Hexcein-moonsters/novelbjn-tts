@@ -48,12 +48,19 @@
     <script src="index.js" type="module"></script>
     <script src="redirector.js"></script>
 
+    <label for="novelNum">Novel number:</label>
+    <input id="novelNum" type="number" name="novelNum"/>
+    <button onclick="getNovel()">
+        <span class="tooltiptext" id="a_Tooltip">Get novel</span>
+    </button>
+      
+
     <textarea display="hidden" id="myInput" rows="10" cols="50">
         Loading novel... Please wait up to 5 seconds.
     </textarea>
         
         <div id="tooltip" display="hidden">
-            <button onclick="myFunction()" onmouseout="outFunc()">
+            <button onclick="copyNovel()" onmouseout="outFunc()">
                 <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
                 Copy text
             </button>
