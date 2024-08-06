@@ -44,9 +44,6 @@ async function fetchAndExtractText(url) {
     }
 }
 
-// Example usage
-fetchAndExtractText('https://novelbjn.novelupdates.net/book/release-that-witch/chapter-483');
-
 
 import { client } from 'https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js';
 			
@@ -85,5 +82,6 @@ async function text_to_speech(text) {
 document.getElementById("getNovel").addEventListener("click", getNovel);
 function getNovel() {
     let novelNum = document.getElementById("novelNum").value
-    localStorage.setItem("novelNum", novelNum)
+    localStorage.setItem("novelNum", novelNum) // save
+    fetchAndExtractText('https://novelbjn.novelupdates.net/book/release-that-witch/chapter-'+novelNum);
 }
